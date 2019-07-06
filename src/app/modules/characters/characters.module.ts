@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CharacterRoutingModule } from './characters-routing.module';
-import { CharactersComponent } from './components/characters.component';
+import { CharacterListComponent } from './components/characterList/characterList.component';
+import { CharactersSerivce } from './services/characters.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [CharactersComponent ],
-  imports: [CharacterRoutingModule],
+  declarations: [CharacterListComponent],
+  imports: [CharacterRoutingModule, HttpClientModule],
   exports: [],
-  providers: []
+  providers: [CharactersSerivce]
 })
 export class CharactersModule { }
