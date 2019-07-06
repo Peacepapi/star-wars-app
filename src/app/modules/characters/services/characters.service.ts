@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 
 const charData = {
     "characters": [
@@ -25,16 +25,20 @@ const charData = {
 
 @Injectable()
 export class CharactersSerivce {
-        
-        constructor(private http: HttpClient) {
 
+        constructor(private http: HttpClient) {
         }
 
         getCharacters(): Observable<any> {
             return new Observable(x => x.next(charData.characters));
         }
 
-        getCharacterInfo(url: string): Observable<any> {
-            return this.http.get(url);
+        callCharacterInfo(url: string): Observable<any> {
+            return this.http.get(url);    
         }
+
+        callCharacterMovies(urls: string[]): Observable<any[]>  {
+            let httpCall = urls.map(url => this.http.get(url));
+            return forkJoin(...httpCall);
+        } 
 }

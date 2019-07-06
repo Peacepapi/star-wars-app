@@ -7,13 +7,12 @@ import { Observable } from 'rxjs';
   templateUrl: './character-list.component.html',
   styleUrls: ['./character-list.component.sass']
 })
-export class CharacterListComponent implements OnInit, OnDestroy {
+export class CharacterListComponent implements OnInit {
 
   private $characters: Observable<any>;
 
   constructor(private characterService: CharactersSerivce) { }
-  ngOnDestroy() {
-  }
+
   ngOnInit() {
     this.$characters = this.characterService.getCharacters()
   }
