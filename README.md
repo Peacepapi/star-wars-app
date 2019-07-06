@@ -1,27 +1,40 @@
-# StarWarsApp
+### Requirements
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
+### Objectives
+- Allow users to choose a character from the provided JSON file
+- Upon selection of a character, the UI should update to display information about **each** of the films that that character appears in. Minimally: Title, and formatted ('Thursday, May 19 2005') release date
+- Do this with any js framework, and some kind of component-based pattern
+- You can only use the API routes found the provided 'characters.json' file, and the data returned from those calls
+- Don't load the movie data until the character is clicked
+- Don't show any movie information until all of the character's movies have loaded
+- Handle HTTP errors (While loading the character as well as the film information)
+- Separate concerns where applicable 
+- Make it pretty! You're encouraged to use [Bootstrap](https://getbootstrap.com/), [Bulma](https://bulma.io/), [Material Components](https://material.io/develop/web/), or any other css framework
 
-## Development server
+NOTE:** Obi-wan's URL is intentionally incorrect, please do not modify the JSON.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+----
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+`characters.json`
+```
+    {
+      "characters": [
+        {
+          "name": "Luke Skywalker",
+          "url": "https://swapi.co/api/people/1/"
+        },
+        {
+          "name": "Darth Vader",
+          "url": "https://swapi.co/api/people/4/"
+        },
+        {
+          "name": "Obi-wan Kenobi",
+          "url": "https://swapi.co/api/people/unknown/"
+        }, 
+        {
+          "name": "R2-D2",
+          "url": "https://swapi.co/api/people/3/"
+        }
+      ]
+    }
+```
