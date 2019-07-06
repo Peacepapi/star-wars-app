@@ -30,9 +30,11 @@ export class CharactersSerivce {
 
         }
 
-        getStarWarChar(): Observable<any> {
-            return new Observable(x => x.next(charData));
+        getCharacters(): Observable<any> {
+            return new Observable(x => x.next(charData.characters));
         }
 
-
+        getCharacterInfo(url: string): Observable<any> {
+            return this.http.get(url);
+        }
 }

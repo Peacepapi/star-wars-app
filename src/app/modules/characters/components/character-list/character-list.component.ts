@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-characters',
-  templateUrl: './characters.component.html',
-  styleUrls: ['./characters.component.sass']
+  templateUrl: './character-list.component.html',
+  styleUrls: ['./character-list.component.sass']
 })
 export class CharacterListComponent implements OnInit, OnDestroy {
 
@@ -15,7 +15,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
   }
   ngOnInit() {
-    this.$characters = this.characterService.getStarWarChar()
+    this.$characters = this.characterService.getCharacters()
   }
 
 }
