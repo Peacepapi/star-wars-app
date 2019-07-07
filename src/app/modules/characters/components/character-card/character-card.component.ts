@@ -14,10 +14,10 @@ export class CharacterCardComponent implements OnInit {
 
   private $characterInfo: Observable<any>;
   private $characterMovies: Observable<any[]>;
-  
+
   private characterInfo: any;
   private characterMovies: any;
-
+  private errorMessage: any;
   constructor(private characterService: CharactersSerivce) { }
 
   ngOnInit() {
@@ -27,12 +27,12 @@ export class CharacterCardComponent implements OnInit {
   getCharacterInfo(url: string) {
     this.$characterInfo = this.characterService.callCharacterInfo(url);
     this.$characterInfo.subscribe(
-      ((data: any) => {
-        this.characterInfo = data;
-        if(data.films)
-          this.getCharacterMovies(data.films);
+      ((characterInfo: any) => {
+        this.characterInfo = characterInfo;
+        if(characterInfo.films)
+          this.getCharacterMovies(characterInfo.films);
         }),
-      (error => error)
+      (error => this.errorMessage = error.message)
     );
   }
 
@@ -40,7 +40,7 @@ export class CharacterCardComponent implements OnInit {
     this.$characterMovies = this.characterService.callCharacterMovies(urls);
     this.$characterMovies.subscribe(
       (movies => this.characterMovies = movies),
-      (error => error)
+      (error => this.errorMessage = error.message)
     );
   }
 }

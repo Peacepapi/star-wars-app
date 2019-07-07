@@ -1,3 +1,10 @@
-<div>
-  <h2 (click)="getCharacterInfo(character?.url)">{{character?.name}}</h2>
-</div>
+<article class="tile is-child">
+    <p (click)="getCharacterInfo(character?.url)" class="title has-text-warning">{{character?.name}}</p>
+    <ul>
+      <p class="subtitle has-text-white has-background-danger">{{errorMessage}}</p>
+      <li *ngFor="let movie of characterMovies" class="subtitle">
+          <p class="has-text-white">{{movie.title}}</p>
+          <p class="has-text-white">{{movie.release_date | date:'fullDate'}}</p>
+      </li>
+    </ul>
+</article>

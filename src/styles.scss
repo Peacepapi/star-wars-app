@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bulma/css/bulma.css";
+
+$yellow: hsl(48, 100%, 67%);
+html {
+    background-color: hsl(0, 0%, 4%);
+}
+.is-parent {
+    border: 2px solid $yellow;
+    min-height: 600px;
+    width: 90%;
+}
+.tile.is-ancestor:last-child, .tile.is-ancestor  {
+    margin: 0;
+}

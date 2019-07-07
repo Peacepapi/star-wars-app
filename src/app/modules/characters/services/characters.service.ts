@@ -40,5 +40,5 @@ export class CharactersSerivce {
         callCharacterMovies(urls: string[]): Observable<any[]>  {
             let httpCall = urls.map(url => this.http.get(url));
             return forkJoin(...httpCall);
-        } 
+        }
 }
